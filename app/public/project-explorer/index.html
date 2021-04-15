@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <link rel="stylesheet" href="css/bootstrap.min.css" title="" type="text/css" />
+    <title>Home</title>
+
+    <style>
+
+      *{
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+        }
+        #project_list{
+          
+          display: flex;
+          justify-content: space-between;
+          
+        }
+        
+        #project_list .card{ 
+          flex-basis: 350px;
+          
+        } 
+        
+        .card{
+          padding: 10px;
+        }
+
+        #logout, #username{
+          display: none;
+        }
+
+       
+
+    </style>
+  </head>
+  <body>
+    
+    <header>
+      <nav class="pl-3 pr-3 justify-content-start align-items-center navbar navbar-expand-lg navbar-dark bg-primary" >
+        <a class="navbar-brand mr-4" href="#">Project Explorer</a>
+        <!--<h2>One Stop Database for Academic Project</h2>-->
+      
+        <form name='searchForm' class="mr-4 form-inline" action="" method="get" accept-charset="utf-8">
+        
+          <input class="form-control mr-2" type="text" name="" placeholder="Search Projects" id="" value="" />
+        
+          <!--<input class="btn btn-outline-light" type="submit" name="" id="" value="search" /> -->
+          
+          <button class="btn btn-outline-light">Search</button>
+        </form>
+        <!-- <div class="collapse navbar-collapse"> -->
+          <div class="navbar-nav">
+            <a class="nav-link mr-auto" href="createproject.html">Submit</a>
+      
+          </div>
+          <div class="ml-auto navbar-nav">
+            <a class="nav-link" id="signUpLink" href="register.html">Sign Up</a>
+            <a class="nav-link" id="loginLink" href="login.html">Login</a>
+            <a class="nav-link" href="#" id="logout">Logout</a>
+            <span class="navbar-text" id="username"></span>
+          </div>
+        <!-- </div> -->
+      </nav>
+    </header>
+    
+    <main>
+      
+      <div class="mt-5 jumbotron">
+        
+        <h1>Welcome to Project Explorer</h1>
+
+         <p>Project explorer is a repository for final year projects across all departments at your institution. You can submit your project and search projects submitted by others to learn from.</p>
+        
+        <a class="mr-2 btn btn-primary" href="register.html">Get Started</a>
+         
+         <a class="btn btn-secondary" href="login.html">Login</a>
+      </div>
+      
+     
+      
+      <!-- <h2>Project List</h2> -->
+      <div id='project_list' class="mt-5d-flex pl-5 pr-5 justify-content-space showcase">
+        <!-- <section class="card">
+          
+          <a href='#'><h4 class="card-title text-primary">Project 1</h4></a>
+         
+            <div class="card-subtitle text-secondary">Author 1, Author 2</div>
+            <div class="card-text">
+              Some quick example text to build on the card title
+              and make up the bulk of the card's content.
+            </div>
+            
+            <div class="text-primary" style='display:flex; justify-content:space-between'>
+              <p>#html</p>
+              <p>#css</p>
+              <p>#javascript</p>
+            </div>
+          </ul>
+          
+          
+        </section>
+        
+        
+        <section class="card">
+          
+          <h4 class="card-title text-primary">Project 1</h4>
+         
+            <div class="card-subtitle text-secondary">Author 1, Author 2</div>
+            <div class="card-text">
+              Some quick example text to build on the card title
+              and make up the bulk of the card's content.
+            </div>
+            
+            <div class="text-primary" style='display:flex; justify-content:space-between'>
+              <p>#html</p>
+              <p>#css</p>
+              <p>#javascript</p>
+            </div>
+          
+          
+        </section>
+      
+        <section class="card">
+          
+          <h4 class="card-title text-primary">Project 1</h4>
+         
+            <div class="card-subtitle text-secondary">Author 1, Author 2</div>
+            <div class="card-text">
+              Some quick example text to build on the card title
+              and make up the bulk of the card's content.
+            </div>
+            
+            <div class="text-primary" style='display:flex; justify-content:space-between'>
+              <p>#html</p>
+              <p>#css</p>
+              <p>#javascript</p>
+            </div>
+          
+          
+        </section>
+      
+
+        <section class="card">
+          
+          <h4 class="card-title text-primary">Project 1</h4>
+         
+            <div class="card-subtitle text-secondary">Author 1, Author 2</div>
+            <div class="card-text">
+              Some quick example text to build on the card title
+              and make up the bulk of the card's content.
+            </div>
+            
+            <div class="text-primary" style='display:flex; justify-content:space-between'>
+              <p>#html</p>
+              <p>#css</p>
+              <p>#javascript</p>
+            </div>
+          
+          
+        </section> -->
+      
+      </div>
+    </main>
+    
+    
+    <footer class="d-flex justify-content-end mt-5 p-3 bg-light">
+      
+      Project Explorer &copy; 2020 - <b>Edconnect</b>
+      
+    </footer>
+
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

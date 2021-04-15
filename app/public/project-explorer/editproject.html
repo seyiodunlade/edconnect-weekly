@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <link rel="stylesheet" href="css/bootstrap.min.css" title="" type="text/css" />
+    <title>Edit Project</title>
+    <style>
+
+      #logout, #username{
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <header>
+      <nav class="pl-3 pr-3 justify-content-start align-items-center navbar navbar-expand-lg navbar-dark bg-primary" >
+        <a class="navbar-brand mr-4" href="#">Project Explorer</a>
+        <!--<h2>One Stop Database for Academic Project</h2>-->
+      
+        <form name='searchForm' class="mr-4 form-inline" action="" method="get" accept-charset="utf-8">
+        
+          <input class="form-control mr-2" type="text" name="" placeholder="Search Projects" id="" value="" />
+        
+          <!--<input class="btn btn-outline-light" type="submit" name="" id="" value="search" />-->
+          <button class="btn btn-outline-light">Search</button>
+        </form>
+        <!-- <div class="collapse navbar-collapse"> -->
+          <div class="navbar-nav">
+            <a class="nav-link" href="createproject.html">Submit</a>
+      
+          </div>
+          <div class="ml-auto navbar-nav">
+            <a class="nav-link" id="signUpLink" href="register.html">Sign Up</a>
+            <a class="nav-link" id="loginLink" href="login.html">Login</a>
+            <a class="nav-link" href="#" id="logout">Logout</a>
+            <span class="navbar-text" id="username"></span>
+          </div>
+        <!-- </div> -->
+      </nav>
+    </header>
+
+    <main>
+      <section class="container mt-4">
+        
+      
+        <h1>Project 1</h1>
+
+        <div class="row bg-light pt-3 pl-2 pr-2">
+
+          <div class="col">Created By</div>
+          <div class="col">Date Created</div>
+          <div class="col">Last Updated</div>
+          <div class="col d-flex justify-content-end"><a href="viewproject.html" class="btn btn-primary">View Project</a></div>
+
+        </div>
+
+
+        <div class="row bg-light pb-3 pl-2 pr-2">
+
+          <div class="col">Ade Chris</div>
+          <div class="col">2020-08-30</div>
+          <div class="col">2020-08-30</div>
+          <div class="col"></div>
+
+        </div>
+        
+      </section>
+      
+      <section class="container mt-3">
+
+        <div class="row mb-5">
+
+          <div class="col">
+ 
+                <h3>Edit Project</h3>
+                <hr/>
+
+            <form name="editProject" action="" method="get" accept-charset="utf-8">
+
+
+              <div class="form-group">
+
+                <label for="projectName">Project Name</label>
+                <input class="form-control" type="text" name="name" id="projectName" value="" />
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="projectAbstract">Project Abstract</label>
+                <textarea class="form-control" name="abstract" id="projectAbstract" rows="8" cols="40"></textarea>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="authors">Author(s)</label>
+                <input class="form-control" type="text" name="authors" id="authors" value="" />
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="tags">Tag(s)</label>
+                <input class="form-control" type="text" name="tags" id="tags" value="" />
+
+              </div>
+              
+              <!--<input class="btn btn-primary" type="submit" value="Save" />-->
+              <button class='btn btn-primary' type='submit'>Save</button>
+
+            </form>
+
+
+          </div>
+
+          <div class="col">
+                
+                <h3>Manage Project Files</h3>
+
+              <hr/>
+
+            <form name="manageProject" action="" method="get" accept-charset="utf-8">
+
+              <div class="custom-file">
+
+                <label class="custom-file-label" for="projectFile">Click to open file browser</label>
+                <input class="form-control custom-file-input" type="file" name="projectFile" id="projectFile" value="" />
+
+              </div>
+
+
+            </form>
+
+            <hr/>
+
+            <div class="card mt-3">
+
+              <div class="card-header">Project files</div>
+              <div class="card-body" style="text-align: center;">No file uploaded yet</div>
+
+            </div>
+
+          </div>
+
+          
+
+        </div>
+        
+      </section>
+    </main>
+    
+    <footer class="d-flex justify-content-end mt-3 p-3 bg-light">
+      
+      Project Explorer &copy; 2020 - <b>Edconnect</b>
+      
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
