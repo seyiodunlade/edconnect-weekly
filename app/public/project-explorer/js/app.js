@@ -200,7 +200,7 @@ if(path.includes("register.html")){
                 let maxAge = 60 * 60 * 24 * 100;
 
                 document.cookie = `${name}=${value};path=/;max-age=${maxAge};`;
-                window.location.href = "http://localhost:4000/project-explorer/index.html"
+                window.location.href = "/project-explorer/index.html"
                 
             }
         })
@@ -262,7 +262,7 @@ if(path.includes("login.html")){
                 let maxAge = 60 * 60 * 24 * 100;
 
                 document.cookie = `${name}=${value};path=/;max-age=${maxAge};`;
-                window.location.href = "http://localhost:4000/project-explorer/index.html"
+                window.location.href = "/project-explorer/index.html"
                 
             }
         })
@@ -281,7 +281,7 @@ if(path.includes("index.html") || path.includes("viewproject.html") || path.incl
 
         e.preventDefault();
         document.cookie = `uid=;path=/;expires=Thu, 01 Jan 1970T00:00:00Z;`;
-        window.location.href = "http://localhost:4000/project-explorer/index.html"
+        window.location.href = "/project-explorer/index.html"
 
     });
 
@@ -347,7 +347,7 @@ if(path.includes("createproject.html")){
                 
             }else{
 
-                window.location.href = "http://localhost:4000/project-explorer/index.html"
+                window.location.href = "/project-explorer/index.html"
                 
             }
         })
