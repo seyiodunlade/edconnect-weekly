@@ -3,25 +3,31 @@ import Layout from './shared/Layout';
 import { useParams, useHistory } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
+
 const Project = (props) => {
 
     const [comment, setComment] = useState('Leave a comment');
+    const [projectName, setProjectName] = useState('');
+    const [abstract, setAbstract] = useState('');
+    const [creator, setCreator] = useState('');
+    const [authors, setAuthors] = useState([]);
+    const [tags, setTags] = useState([]);
     const params = useParams();
     const history = useHistory();
-    
-    let asyncHandler = async function (url) {
 
-        let response = await fetch(url);
-        if (response.status !== 200) {
-            throw new Error("something went wrong!!!");
+    useEffect(() => {
+
+        let asyncHandler = async function (url) {
+
+            let response = await fetch(url);
+            if (response.status !== 200) {
+                throw new Error("something went wrong!!!");
+            }
+            let data = await response.json();
+            return data;
+        
+        
         }
-        let data = await response.json();
-        return data;
-
-
-    }
-    
-    window.onload = () => {
 
         let cookie = document.cookie.split(';').filter(item => item.trim().startsWith("uid"));
 
@@ -31,42 +37,42 @@ const Project = (props) => {
 
             if (cookieValue === '') {
                 history.push('/login'); // Redirect to login.html
-            } 
-
+            }else{
+                
+            }
         } else {
             history.push('/login'); // Redirect to login.html
         }
-        
+
+        console.log('hello');
+
         asyncHandler(`/api/projects/${params.id}`)
                     .then(data => {
 
-                        console.log(data.createdBy);
-                        console.log(data.authors);
-                        document.querySelector("#project_name").innerHTML = data.name;
-                        document.querySelector("#project_abstract").innerHTML = data.abstract;
-                        data.authors.forEach((author, index) => {
-
-                            if (index === data.authors.length - 1) {
-                                document.querySelector("#project_authors").innerHTML += `<div>${author}</div>`;
-                            } else {
-                                document.querySelector("#project_authors").innerHTML += `<div>${author}</div><hr/>`;
-                            }
-
-                        });
-
-                        document.querySelector('#project_tags').innerHTML = data.tags.join('');
+                        console.log(data);
+                        setProjectName(prevName => data.name);
+                        setAbstract(data.abstract);
+                        setAuthors(data.authors);
+                        setTags(data.tags);
 
                         asyncHandler(`/api/users/${data.createdBy}`)
                             .then(data => {
-                                console.log(data)
-                                document.querySelector("#project_author").innerHTML = `${data.firstname} ${data.lastname}`;
-                            })
+                                console.log(data);
+                                setCreator(`${data.firstname} ${data.lastname}`)
+                                // document.querySelector("#project_author").innerHTML = `${data.firstname} ${data.lastname}`;
+                        })
+                        
+                        // console.log('PROJECT NAME: ', projectName);
+                        // console.log('PROJECT ABSTRACT: ', abstract);
+                        // console.log('PROJECT AUTHORS: ', authors);
+                        // console.log('PROJECT TAGS: ', comment);
+                        // console.log('In the then function');
 
-                    });
+                    })
+                    .catch(err => {console.log(err)});
 
-    }
-    
-    
+
+    }, []);
 
     const handleChange = () => { };
 
@@ -80,7 +86,7 @@ const Project = (props) => {
 
                 <section>
 
-                    <h1 id="project_name"></h1>
+                    <h1 id="project_name">{projectName}</h1>
 
                     <div className="row bg-light pt-3 pl-2 pr-2">
 
@@ -94,7 +100,7 @@ const Project = (props) => {
 
                     <div className="row bg-light pb-3 pl-2 pr-2">
 
-                        <div className="col" id="project_author"></div>
+                        <div className="col" id="project_author">{creator}</div>
                         <div className="col">2020-08-30</div>
                         <div className="col">2020-08-30</div>
                         <div className="col"></div>
@@ -118,6 +124,7 @@ const Project = (props) => {
                                 <div className="card-body" style={{ textAlign: "justify" }}>
 
                                     <div className="mb-3" id="project_abstract">
+                                        {abstract}
                                     </div>
 
                                     <Form name="projectComments" action="" method="get" acceptCharset="utf-8">
@@ -163,8 +170,11 @@ const Project = (props) => {
 
                                 <div className="card-header" style={{ fontWeight: "bold" }}>Author(s)</div>
                                 <div className="card-body" id="project_authors">
+                                    {authors.map((author, index) => index === authors.length - 1? <div key={index}>{author}</div>:<div key={index}>{author}<hr/></div>)}
                                 </div>
-                                <div className="card-footer text-primary" id="project_tags"></div>
+                                <div className="card-footer text-primary" id="project_tags">
+                                {tags}
+                                </div>
 
                             </div>
 
