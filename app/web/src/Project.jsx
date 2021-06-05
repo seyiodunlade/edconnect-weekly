@@ -3,24 +3,24 @@ import Layout from './shared/Layout';
 import { useParams, useHistory } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
-let asyncHandler = async function (url) {
-
-    let response = await fetch(url);
-    if (response.status !== 200) {
-        throw new Error("something went wrong!!!");
-    }
-    let data = await response.json();
-    return data;
-
-
-}
-
 const Project = (props) => {
 
     const [comment, setComment] = useState('Leave a comment');
     const params = useParams();
     const history = useHistory();
+    
+    let asyncHandler = async function (url) {
 
+        let response = await fetch(url);
+        if (response.status !== 200) {
+            throw new Error("something went wrong!!!");
+        }
+        let data = await response.json();
+        return data;
+
+
+    }
+    
     window.onload = () => {
 
         let cookie = document.cookie.split(';').filter(item => item.trim().startsWith("uid"));
@@ -31,8 +31,13 @@ const Project = (props) => {
 
             if (cookieValue === '') {
                 history.push('/login'); // Redirect to login.html
-            } else {
-                asyncHandler(`/api/projects/${params.id}`)
+            } 
+
+        } else {
+            history.push('/login'); // Redirect to login.html
+        }
+        
+        asyncHandler(`/api/projects/${params.id}`)
                     .then(data => {
 
                         console.log(data.createdBy);
@@ -58,13 +63,10 @@ const Project = (props) => {
                             })
 
                     });
-            }
-
-        } else {
-            history.push('/login'); // Redirect to login.html
-        }
 
     }
+    
+    
 
     const handleChange = () => { };
 
