@@ -99,7 +99,7 @@ const Login = () => {
                     <Form.Group className="mb-5">
 
                         <Form.Label>Password:</Form.Label>
-                        <Form.Control onChange={handleChange} name="email" id="password" value={password} type="password" placeholder="Password"/>
+                        <Form.Control onChange={handleChange} name="password" id="password" value={password} type="password" placeholder="Password"/>
 
                     </Form.Group>
 
