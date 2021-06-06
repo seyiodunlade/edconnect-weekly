@@ -49,7 +49,7 @@ const Project = (props) => {
         asyncHandler(`/api/projects/${params.id}`)
                     .then(data => {
 
-                        console.log(data);
+                        //console.log(data);
                         setProjectName(data.name);
                         setAbstract(data.abstract);
                         setAuthors(data.authors);
