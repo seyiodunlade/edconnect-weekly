@@ -50,7 +50,7 @@ const Project = (props) => {
                     .then(data => {
 
                         console.log(data);
-                        setProjectName(prevName => data.name);
+                        setProjectName(data.name);
                         setAbstract(data.abstract);
                         setAuthors(data.authors);
                         setTags(data.tags);
