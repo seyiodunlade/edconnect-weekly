@@ -29,7 +29,7 @@ const Project = (props) => {
         
         }
 
-        let cookie = document.cookie.split(';').filter(item => item.trim().startsWith("uid"));
+      /*  let cookie = document.cookie.split(';').filter(item => item.trim().startsWith("uid"));
 
         if (cookie.length > 0) { // If a cookie still exists or was erased (because the name/key would still be there)
 
@@ -43,7 +43,7 @@ const Project = (props) => {
         } else {
             history.push('/login'); // Redirect to login.html
         }
-
+*/
         console.log('hello');
 
         asyncHandler(`/api/projects/${params.id}`)
